@@ -2,7 +2,7 @@
  * @Author: kangning1206
  * @Date:   2019-01-10 19:08:08
  * @Last Modified by:   kangning1206
- * @Last Modified time: 2019-01-11 09:56:20
+ * @Last Modified time: 2019-01-11 12:13:12
  */
 
 
@@ -24,18 +24,6 @@ export const getProductionList = () => dispatch => {
       payload: data.list
     })
   });
-  // fetch("https://easy-mock.com/mock/5bf54037d863cd5370aef547/demoshow/api/v2/product/list")
-  //   .then(res => res.json())
-  //   .then(data => {
-
-  //       dispatch({
-  //         type: GET_PRODUCTION_LIST,
-  //         payload: data.content.list
-  //       })
-
-  //     }
-
-  //   )
 }
 
 

@@ -2,7 +2,7 @@
  * @Author: kangning1206
  * @Date:   2019-01-10 19:35:08
  * @Last Modified by:   kangning1206
- * @Last Modified time: 2019-01-11 09:30:31
+ * @Last Modified time: 2019-01-11 12:15:43
  */
 
 import React, { Component } from 'react';
@@ -28,7 +28,7 @@ class productionList extends Component {
           <div className="line">
             <a href="#/a" className="promo">
               <span>¥</span>
-              <em>{item.price * Math.random().toFixed(2)}</em>
+              <em>{(item.price * Math.random()).toFixed(2)}</em>
             </a>
             <a href="#/a" className="price">
               <span>¥</span>
