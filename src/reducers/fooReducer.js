@@ -1,27 +1,25 @@
 /*
  * @Author: kangning1206
- * @Date:   2019-01-10 19:07:19
+ * @Date:   2019-01-12 17:56:36
  * @Last Modified by:   kangning1206
- * @Last Modified time: 2019-01-12 18:11:11
+ * @Last Modified time: 2019-01-12 17:59:01
  */
 
 
-import { GET_PRODUCTION_LIST } from '../actions/actionType';
+import { FOO_ACTION_TYPE } from '../actions/actionType';
 // reducer的作用: 返回新的状态
 
 const initialState = {
-  items: [],
-  total: 0
+  name: 'foo',
+  desc: '这个是拆分reducer数据'
 }
 
 export default function(state = initialState, action) {
   switch (action.type) {
-
-    case GET_PRODUCTION_LIST:
+    case FOO_ACTION_TYPE:
       return {
         ...state,
-        items: action.payload,
-        total: action.payload.length
+        payload: action.payload
       }
     default:
       return state;

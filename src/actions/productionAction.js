@@ -2,7 +2,7 @@
  * @Author: kangning1206
  * @Date:   2019-01-10 19:08:08
  * @Last Modified by:   kangning1206
- * @Last Modified time: 2019-01-11 12:13:12
+ * @Last Modified time: 2019-01-12 18:19:19
  */
 
 
@@ -26,6 +26,16 @@ export const getProductionList = () => dispatch => {
   });
 }
 
+
+
+// export const getProductionList = () => (dispatch, store) => {
+//   dbProduction.productionList().then(data => {
+//     dispatch({
+//       type: GET_PRODUCTION_LIST,
+//       payload: data.list
+//     })
+//   });
+// }
 
 // export const createPost = postData => dispatch => {
 //   console.log("createPost");

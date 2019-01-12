@@ -2,7 +2,7 @@
  * @Author: kangning1206
  * @Date:   2019-01-10 19:35:08
  * @Last Modified by:   kangning1206
- * @Last Modified time: 2019-01-11 12:15:43
+ * @Last Modified time: 2019-01-12 18:15:05
  */
 
 import React, { Component } from 'react';
@@ -10,15 +10,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getProductionList } from '../actions/productionAction';
+import { getProductionList as productionAction } from '../actions/productionAction';
 
 class productionList extends Component {
   componentDidMount() {
-    this.props.getProductionList();
+    this.props.productionAction();
   }
 
   render() {
-    const productonItems = this.props.list.map(item => (
+    const { productionData: { items, total } } = this.props;
+    const productonItems = items.map(item => (
       <li key={item.id} className="item">
         <a href="#a">
           <img className="img" src={item.img} alt={item.title} />
@@ -41,7 +42,7 @@ class productionList extends Component {
 
     return (
       <div className="container">
-        <h1 className="hotsale-hd mod-hd bar-hd"><em>猜你喜欢-producton</em></h1>
+        <h1 className="hotsale-hd mod-hd bar-hd"><em>猜你喜欢- {total} producton</em></h1>
         <ul className="list">{productonItems}</ul>
       </div>
     );
@@ -49,14 +50,16 @@ class productionList extends Component {
 }
 
 productionList.propTypes = {
-  getProductionList: PropTypes.func.isRequired,
-  list: PropTypes.array.isRequired
+  productionAction: PropTypes.func.isRequired,
+  productionData: PropTypes.object.isRequired,
+  fooData: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  list: state.productionList.items
+  productionData: state.productionReducer,
+  fooData: state.fooReducer
 });
 
 export default connect(
-  mapStateToProps, { getProductionList }
+  mapStateToProps, { productionAction }
 )(productionList);
