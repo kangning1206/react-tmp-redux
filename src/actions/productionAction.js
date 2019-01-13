@@ -2,7 +2,7 @@
  * @Author: kangning1206
  * @Date:   2019-01-10 19:08:08
  * @Last Modified by:   kangning1206
- * @Last Modified time: 2019-01-13 12:51:54
+ * @Last Modified time: 2019-01-13 16:32:06
  */
 
 
@@ -28,33 +28,32 @@ export const getProductionList = (reqParam) => dispatch => {
   });
 }
 
+
 /**
  * [description async await]
  * @param  {[type]} reqParam [description]
  * @return {[type]}          [description]
  */
 export const getProductionList2 = (reqParam) => {
-  const success = (dispatch, result) => {
-    dispatch({
-      type: 'GET_PRODUCTION_LIST',
-      payload: result.list1.list.concat(result.list2.list)
-    });
-    return result;
-  }
-
-  const fail = (dispatch, err) => {
-    dispatch({
-      type: 'CREATE_POST_FAIL',
-      err
-    })
-    return err
-  }
 
   return async dispatch => {
+    const success = (result) => {
+      dispatch(productionList(result.list1.list.concat(result.list2.list)));
+      return result;
+    }
+
+    const fail = (err) => {
+      dispatch({
+        type: 'CREATE_POST_FAIL',
+        err
+      });
+      return err;
+    }
+
     try {
       const list1 = await dbProduction.productionList(reqParam);
       const list2 = await dbProduction.productionList2(reqParam);
-      return success(dispatch, { list1, list2 });
+      return success({ list1, list2 });
     } catch (err) {
       return fail(err);
     }
