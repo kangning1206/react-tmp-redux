@@ -2,7 +2,7 @@
  * @Author: kangning1206
  * @Date:   2019-01-10 19:35:08
  * @Last Modified by:   kangning1206
- * @Last Modified time: 2019-01-13 16:31:47
+ * @Last Modified time: 2019-01-13 17:14:14
  */
 
 import React, { Component } from 'react';
@@ -33,20 +33,22 @@ class productionList extends Component {
     const total = items.length;
     const productonItems = items.map(item => (
       <li className="item" key={item.id}>
-        <a href="#a">
-          <img className="img" src={item.img} alt={item.title} />
-        </a>
-        <div>
-          <h3 className="title">{item.title}</h3>
-          <div className="line">
-            <a href="#/a" className="promo">
-              <span>¥</span>
-              <em>{(item.price * Math.random()).toFixed(2)}</em>
-            </a>
-            <a href="#/a" className="price">
-              <span>¥</span>
-              <em>{item.price}</em>
-            </a>
+        <div className="item-content">
+          <a href="#a">
+            <img className="img" src={item.img} alt={item.title} />
+          </a>
+          <div>
+            <h3 className="title">{item.title}</h3>
+            <div className="line">
+              <a href="#/a" className="promo">
+                <span>¥</span>
+                <em>{(item.price * Math.random()).toFixed(2)}</em>
+              </a>
+              <a href="#/a" className="price">
+                <span>¥</span>
+                <em>{item.price}</em>
+              </a>
+            </div>
           </div>
         </div>
       </li>
