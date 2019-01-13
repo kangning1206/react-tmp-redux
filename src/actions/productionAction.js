@@ -2,7 +2,7 @@
  * @Author: kangning1206
  * @Date:   2019-01-10 19:08:08
  * @Last Modified by:   kangning1206
- * @Last Modified time: 2019-01-12 18:19:19
+ * @Last Modified time: 2019-01-13 11:37:09
  */
 
 
@@ -15,14 +15,16 @@
 import { GET_PRODUCTION_LIST } from './actionType';
 import dbProduction from '../api/production';
 
+export function productionList(payload) {
+  return {
+    type: GET_PRODUCTION_LIST,
+    payload
+  }
+}
 
-
-export const getProductionList = () => dispatch => {
-  dbProduction.productionList().then(data => {
-    dispatch({
-      type: GET_PRODUCTION_LIST,
-      payload: data.list
-    })
+export const getProductionList = (reqParam) => dispatch => {
+  dbProduction.productionList(reqParam).then(data => {
+    dispatch(productionList(data.list))
   });
 }
 

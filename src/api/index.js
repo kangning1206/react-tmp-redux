@@ -2,7 +2,7 @@
  * @Author: kangning1206
  * @Date:   2019-01-11 09:47:49
  * @Last Modified by:   kangning1206
- * @Last Modified time: 2019-01-11 09:58:47
+ * @Last Modified time: 2019-01-13 12:01:53
  */
 
 
@@ -14,11 +14,9 @@ import dbCommon from './common';
 
 
 export {
-  dbUser,
-  dbJobs,
+  dbProduction,
   dbCommon,
-  dbAll,
-  dbNav,
+  dbAll
 };
 
 export default {
